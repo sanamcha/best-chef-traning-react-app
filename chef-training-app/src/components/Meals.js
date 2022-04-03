@@ -5,7 +5,7 @@ const Meals = ({ meals }) => {
     return (
         <div>
             {meals.map((m => (
-                <MealDetail  />
+                <MealDetail key={ m.idMeal } meal={m} />
             )))}
         </div>
     );
