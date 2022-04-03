@@ -70,7 +70,23 @@ const MealId = () => {
                     <p> {meal.strInstructions} </p>
                 </div>
             </div>
-           
+            {meal.strYoutube && (
+                <div>
+                    <div>
+                        <h4>Training Video</h4>
+                        <div className="player-wrapper">
+                            <ReactPlayer 
+                                className = "react-player"
+                                url = { meal.strYoutube }
+                                width="100%"
+                                height="400px"
+                                pip={true}
+                                stopOnUnmount={false}
+                            />
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     )
 }
