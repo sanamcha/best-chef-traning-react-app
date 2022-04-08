@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Ingredients from "../components/Ingredients";
-import { isEmpty } from "../common/helper";
+import { isEmpty } from "../common/Helper";
 import ReactPlayer from "react-player/youtube";
 import LoadingSpinner from "../common/LoadingSpinner";
 import { getIngredientImage, getMealDetails } from "../Api";
@@ -19,19 +19,17 @@ const MealId = () => {
             let mealId = await getMealDetails(id);
             setMeal(mealId.meals[0]);
             getData();
-            // console.debug("setMeal=", setMeal)
+            
         };
         getMeal();
     }, [meal]);
 
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
+  
 
     const getData = async () => {
         let data = [];
         let i = 1;
-        for(i; i<=20; i++) {
+        for(i; i<=30; i++) {
             const item = {
                 name : meal[`strIngredient${i}`],
                 measure : meal[`strMeasure${i}`],
@@ -85,6 +83,7 @@ const MealId = () => {
                             />
                         </div>
                     </div>
+                    <button className="btn btn-primary">Add Reviews....</button>
                 </div>
             )}
         </div>
