@@ -8,9 +8,18 @@ const Search = () => {
   const [isEmpty, setIsEmpty] = useState([true]);
   let { searchFor } = useParams();
 
- 
+  useEffect(() => {
+    result();
+   
+  }, []);
 
-  
+  const result = async () => {
+    const data = await getSearchByName(searchFor);
+    if (data) {
+      setIsEmpty(false);
+      return setMeals(data);
+    }
+  };
 
   return (
     <div>
@@ -25,7 +34,9 @@ const Search = () => {
           </div>
         )}
       </div>
-      
+      <div>
+        <Meals meals={meals} />
+      </div>
     </div>
   );
 };
