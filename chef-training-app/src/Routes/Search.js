@@ -9,11 +9,11 @@ const Search = () => {
   let { searchFor } = useParams();
 
   useEffect(() => {
-    result();
+    searchRes();
    
   }, []);
 
-  const result = async () => {
+  const searchRes = async () => {
     const data = await getSearchByName(searchFor);
     if (data) {
       setIsEmpty(false);
@@ -23,18 +23,19 @@ const Search = () => {
 
   return (
     <div>
-      <div>
+      <div className="container">
         {meals && !isEmpty > 0 ? (
-          <p>
-            <span>{`${meals.length} meals found for "${searchFor}"`}</span>
-          </p>
+
+          <h4 className="brown-text text-darken-2">
+            <strong>{`We found ${meals.length} meals for "${searchFor}"`}</strong>
+          </h4>
         ) : (
           <div>
-            <span>{`No meals found for "${searchFor}"`}</span>
+            <strong>{`We don't have any meals for "${searchFor}"`}</strong>
           </div>
         )}
       </div>
-      <div>
+      <div className="row container">
         <Meals meals={meals} />
       </div>
     </div>
