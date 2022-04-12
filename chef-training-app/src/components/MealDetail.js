@@ -1,28 +1,40 @@
-import React from "react";
+import React  from "react";
 import { Link } from "react-router-dom";
+import Rating from "react-rating";
+import "./MealDetail.css"
+
 
 const MealDetail = ({ meal }) => {
 
     return (
-        <div>
-            <div>
-            <img src = { meal.strMealThumb }
+        <div className="col sm 12 ">
+            <div className="card small hoverable">
+            <div className="card-image">
+            <img className="responsive-img "
+            src = { meal.strMealThumb }
                 alt = { meal.strMeal } />
             </div>
-            <div>
-                <Link to={`/meal/${meal.idMeal}`}>View Recipe </Link>
+
+            <div >
+                <Link
+                to={`/meal/${meal.idMeal}`}><strong>View Details</strong> </Link>
             </div>
             <div>
                 <span>{meal.strMeal}</span>
-                <p><span>Category:</span>{ meal.strCategory }</p>
+                <p><strong>Category:</strong>{ meal.strCategory }</p>
                 <p>
-                    <span>Area: </span>{ meal.strArea }
+                    <strong>Area: </strong>{ meal.strArea }
                 </p>
                 <p>
-                    <span>Tags:</span>{meal.strTags}
+                    <strong>Tags:</strong>{meal.strTags}
                 </p>
+                
+                <Rating className="rating" 
+                emptySymbol="far fa-star design"
+                fullSymbol="fas fa-star design"            
+                initialRating={3}/>
             </div>
-            
+            </div>
         </div>
     )
 }

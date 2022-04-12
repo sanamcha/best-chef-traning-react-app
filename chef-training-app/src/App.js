@@ -7,6 +7,7 @@ import Search from "./Routes/Search";
 import IngredientId from "./Routes/IngredientId";
 import RandomMeal from "./Routes/RandomMeal";
 import Categories from "./components/Categories";
+import Footer from "./components/Footer";
 import './App.css';
 
 
@@ -15,7 +16,6 @@ const App = () => {
     return (
  
       <BrowserRouter>
-
         <NavBar />
       <main>
         <Switch>
@@ -27,9 +27,9 @@ const App = () => {
           
           <Route exact path="/ingredients/:id"><IngredientId /></Route>
           
-   
         </Switch>
       </main>
+      <Footer />
     </BrowserRouter>
 
   );

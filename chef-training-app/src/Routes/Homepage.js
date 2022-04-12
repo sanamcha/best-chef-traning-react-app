@@ -8,17 +8,20 @@ import "../App.css";
 const Homepage = () => {
     
     return (
-        <div>
-            <div>
+        <div className="Homepage">
+        <div className="center-align">
                 <h4>
                      The Best Meal Collection
                 </h4>
-                
-            </div>
-       
-            <div>
-                <Meals meals={ MealData } />
-            </div>
+                <div className="container">
+                <div >
+                   <div >
+                    <Meals meals={ MealData } />
+                   </div>
+                </div>
+                </div> 
+            
+        </div>    
           
         </div>
     );

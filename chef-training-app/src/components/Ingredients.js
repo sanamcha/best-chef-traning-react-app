@@ -1,12 +1,17 @@
 import React from "react";
-import IngredientId from "./IngredientId";
+import IngredientDetail from "./IngredientDetail";
 
-const Ingredients =({ ingredients }) => {
+
+const Ingredients =({ingredients}) => {
+    
     return (
-        <div>
-            {ingredients.map((ingredient, i) => (
-                <IngredientId key={i} ingredient ={ ingredient } />
-            ))}
+        <div className="row">
+         
+          {ingredients.map((ingredient, i) => 
+            (
+                <IngredientDetail key={i} ingredient ={ ingredient } />
+            )
+            )}
         </div>
     )
 }

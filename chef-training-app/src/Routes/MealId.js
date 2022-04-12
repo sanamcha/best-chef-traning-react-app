@@ -13,64 +13,67 @@ const MealId = () => {
     let { id } = useParams();
 
     useEffect(() => {
-        const getMeal = async () => {
-            // console.debug("getMeal=", getMeal)
+        const mealDetails = async () => {
+            // console.debug("mealDetails=", mealDetails)
 
             let mealId = await getMealDetails(id);
             setMeal(mealId.meals[0]);
-            getData();
+            getMoreData();
             
         };
-        getMeal();
+        mealDetails();
     }, [meal]);
 
-  
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
 
-    const getData = async () => {
-        let data = [];
+    const getMoreData = async () => {
+        let moreData = [];
         let i = 1;
-        for(i; i<=30; i++) {
+        for(i; i<=10; i++) {
             const item = {
                 name : meal[`strIngredient${i}`],
                 measure : meal[`strMeasure${i}`],
                 image : getIngredientImage(meal[`strIngredient${i}`]), 
             };
-            data.push(item);
+            moreData.push(item);
             i += 1;
         }
-        return setIngredients(data);
+        return setIngredients(moreData);
     };
 
     return (
         <div className= "container">
-            <div>
+            <div className="row">
                 {!isEmpty(meal) ? (
-                    <div>
-                        <h4>{meal.strMeal}</h4>
-                        <img src={meal.strMealThumb} 
+                    <div className="col s12 ">
+                        <h4 className="center-align">{meal.strMeal}</h4>
+                        <img
+                        src={meal.strMealThumb} 
                              alt={`${meal.strMeal} meal`} />
                     </div>
                 ) : (
                     <LoadingSpinner />
                 )} 
             </div>
-            <div>
-                <div>
-                    <h4> Ingredients </h4>
-                    <div>
+            <div className="row">
+                <div className="col s12">
+                    <h4 className="center-align"> Ingredients </h4>
+                    <div className="center-align">
                         <Ingredients ingredients={ ingredients } />
                     </div>
                 </div>
             </div>
-            <div>
-                <div>
+            <div className="row center-align">
+                <div className="col s12">
                     <h4> Instructions </h4>
                     <p> {meal.strInstructions} </p>
                 </div>
             </div>
             {meal.strYoutube && (
-                <div>
-                    <div>
+                <div className="row center-align">
+                    <div className="col s12">
                         <h4>Training Video</h4>
                         <div className="player-wrapper">
                             <ReactPlayer 
@@ -83,9 +86,11 @@ const MealId = () => {
                             />
                         </div>
                     </div>
-                    <button className="btn btn-primary">Add Reviews....</button>
+                    
                 </div>
+                
             )}
+            <button className="btn btn-primary">Add Reviews....</button>
         </div>
     )
 }

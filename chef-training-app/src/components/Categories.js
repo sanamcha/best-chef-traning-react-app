@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import {Link} from "react-router-dom";
  
 
@@ -89,7 +89,9 @@ const CategoriesData = [
 const Categories = () => {
     
     return (
-        <div>{CategoriesData.map(c=>(
+        
+        <div className="categories">
+            {CategoriesData.map(c=>(
             <div>
                <Link to = {`/search/q=${c.strCategory}?`}>{c.strCategory}</Link>
                 <img src={c.strCategoryThumb}
@@ -99,6 +101,7 @@ const Categories = () => {
             </div>       
         ))}     
         </div> 
+       
     );
 }
 

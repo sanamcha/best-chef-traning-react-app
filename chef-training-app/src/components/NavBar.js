@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Link, useHistory } from "react-router-dom";
 import M from "materialize-css";
+import { Link, useHistory } from "react-router-dom";
+
 
 const NavBar = () => {
   const [search, setSearch] = useState("");
   let history = useHistory();
 
-  const toSearchPage = () => {
+  const SearchPage = () => {
     history.push(`/search/q=${search}`);
   };
 
@@ -15,23 +16,25 @@ const NavBar = () => {
   }, []);
 
   return (
-    <>
-      <nav>
-        <div>
-          <div>
-            <Link to="/">
+    <div>
+      <nav >
+        <div className="nav-wrapper brown darken">
+          <div className="container">
+            <Link to="/" className="brand-logo">
               <span>Chef Training App</span>
             </Link>
+            <Link to="/" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></Link>
             
-            <ul>
+            <ul className="right hide-on-med-and-down">
               <li>
-                <form onSubmit={toSearchPage}>
+                <form onSubmit={SearchPage}>
                   <input
-                    className="input-field"
+                    className="mobile-input input-field"
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
                     type="text"
                     placeholder="Search for a Meal..."
+                    style={{ paddingLeft: 30 }}
                   />
                   <button className="btn btn-success"type="submit" >Go!</button>
                 </form>
@@ -45,11 +48,7 @@ const NavBar = () => {
             <li>
                 <Link to="/categories">Categories</Link>
               </li>
-              
-              {/* <li>
-                <Link to="/ingredients">Ingredients List</Link>
-              </li> */}
-              
+            
               <li>
                 <Link to="/ingredients/0">Ingredients</Link>
               </li>
@@ -57,7 +56,7 @@ const NavBar = () => {
           </div>
         </div>
       </nav>
-    </>
+    </div>
   ); 
 };
 

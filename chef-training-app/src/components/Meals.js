@@ -1,12 +1,14 @@
 import React from "react";
 import MealDetail from "./MealDetail";
 
+
 const Meals = ({ meals }) => {
     return (
-        <div>
-            {meals.map((m => (
-                <MealDetail key={ m.idMeal } meal={m} />
+        <div className="row">
+            {meals.map((meal => (
+                <MealDetail key={ meal.idMeal } meal={meal} />
             )))}
+           
         </div>
     );
 }

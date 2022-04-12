@@ -28,22 +28,22 @@ const IngredientId = () => {
     }
 
     return (
-    <div>
+    <div className="row">
       <hr></hr>
         <MoreLinks />
    
-      <div>
+      
          
       <Link to={`/ingredients/${1 * id - 1}`}>
-          <button className="btn btn-info">Previous</button></Link>
+          <button className="btn btn-info ">Previous</button></Link>
         <Link to={`/ingredients/${1 * id + 1}`}>
           <button className="btn btn-success">Next</button></Link>
 
-        
+        <div className="row">
         {!isEmpty(ingredient) ? (
           <div>
-            <div>
-              <h4>
+            <div className="col-sm-6">
+              <h4 className="center-align">
                 <span>{ingredient.strIngredient}</span>
               </h4>
               <img
@@ -52,8 +52,8 @@ const IngredientId = () => {
               />
 
             </div>
-            <div>
-              <h4>
+            <div className="col s6">
+              <h4 className="center-align ">
                 <span>Description</span>
               </h4>
               <p>
@@ -62,14 +62,14 @@ const IngredientId = () => {
             </div>
           </div>
         ) : (
-          <div>
+          <div className="center-align">
             <LoadingSpinner />
           </div>
         )}
       </div>
-      <div>
-        <div>
-          <h4>
+      <div className="row">
+        <div className="col s12">
+          <h4 className="center-align">
             <span>Meals</span>
           </h4>
           <div>
@@ -81,7 +81,7 @@ const IngredientId = () => {
                 <li>
                   <Link to={`/ingredients/${1 * id - 1}`}>
                  
-                    <button className="btn btn-info">Previous</button>
+                    <button className="btn btn-info ">Previous</button>
                   </Link>
                 </li>
                 <li >

@@ -42,7 +42,7 @@ const BASE_API = {
 
     const getRandomMeals = async () => {
         let randMeals = [];
-        while(randMeals.length !== 10){
+        while(randMeals.length !== 24){
             let result = await fetch(BASE_API.randomMeal);
             let data = await result.json();
             randMeals.push(data.meals[0]);

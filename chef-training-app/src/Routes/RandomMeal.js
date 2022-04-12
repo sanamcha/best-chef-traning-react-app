@@ -23,7 +23,7 @@ const RandomMeal = () => {
             { isEmpty(meals) ? (
                 <LoadingSpinner />
             ) : (
-            <div>
+            <div className="container">
                 <Meals meals={meals} />
             </div>
             )}

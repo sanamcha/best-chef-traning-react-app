@@ -1,15 +1,14 @@
-import React, { useEffect } from "react";
-import M from "materialize-css";
+import React from "react";
+
 
 const IngredientDetail = ({ ingredient }) => {
-    useEffect(() => {
-       M.AutoInit();
-    }, []);
+   
 
     return (
        
-        <div>
-            <img src={ ingredient.img }
+        <div className="col s12">
+            <img 
+                 src={ ingredient.image }
                  alt ={ ingredient.name } />
             <p>{ ingredient.measure }</p>
             <p>{ ingredient.name }</p>
